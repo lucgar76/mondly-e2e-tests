@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Environment variables (CRITICAL - contains credentials!)
+.env
+.env.local
+.env.*.local
+
+# Cypress artifacts
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+cypress.env.json
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
