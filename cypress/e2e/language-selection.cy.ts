@@ -68,27 +68,9 @@ describe('Mondly Language Selection', () => {
     // Wait for the login form to appear
     cy.wait(1000);
     
-    // STEP 5: Enter email in the "Correo electrónico" field
-    // Find the input field by its placeholder text and type the email
-    cy.get('input[placeholder="Correo electrónico"]')
-      .should('be.visible')
-      .clear()
-      .type('messi@mondly.com');
-    
-    // Verify the email was entered
-    cy.get('input[placeholder="Correo electrónico"]')
-      .should('have.value', 'messi@mondly.com');
-    
-    // STEP 6: Enter password in the "Contraseña" field
-    // Find the password input field by its placeholder text and type the password
-    cy.get('input[placeholder="Contraseña"]')
-      .should('be.visible')
-      .clear()
-      .type('mondly');
-    
-    // Verify the password was entered (field will show dots, but value is there)
-    cy.get('input[placeholder="Contraseña"]')
-      .should('have.value', 'mondly');
+  // STEP 5 & 6: Enter credentials using the custom command
+// This uses the credentials from your .env file securely
+cy.enterCredentials(Cypress.env('userEmail'), Cypress.env('userPassword'));
     
     // STEP 7: Click the "Iniciar sesión" button to submit the login form
     // Find the submit button by its type attribute
